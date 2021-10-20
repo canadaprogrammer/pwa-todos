@@ -1,0 +1,63 @@
+$main-1: #aa33ff;
+$main-2: #ff00bf;
+$main-3: #ff3a80;
+$main-4: #ff8a53;
+$main-5: #ffc747;
+$main-6: #f9f871;
+
+body {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  margin: 0;
+}
+@media only screen and (min-width: 1600px) {
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+}
+nav {
+  background: $main-1;
+  a {
+    text-decoration: none;
+    color: white;
+    i {
+      margin-right: 1rem;
+    }
+  }
+}
+.nav-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 2em;
+  color: white;
+  .sidebar-trigger {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+  }
+}
+.sidebar-trigger .btn-line {
+  width: 28px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background-color: $main-6;
+  transition: all 0.5s ease-out;
+}
+.btn-line.close {
+  &:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  &:nth-child(2) {
+    opacity: 0;
+  }
+  &:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}

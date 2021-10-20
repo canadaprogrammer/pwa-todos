@@ -1,18 +1,10 @@
-:root {
-  --main-1: #aa33ff;
-  --main-2: #ff00bf;
-  --main-3: #ff3a80;
-  --main-4: #ff8a53;
-  --main-5: #ffc747;
-  --main-6: #f9f871;
-}
-
 body {
   font-family: 'Oswald', sans-serif;
   font-size: 18px;
   line-height: 1;
   margin: 0;
 }
+
 @media only screen and (min-width: 1600px) {
   .container {
     max-width: 1400px;
@@ -20,54 +12,62 @@ body {
     padding: 0 1rem;
   }
 }
+
 nav {
-  background: var(--main-1);
-  /* background: radial-gradient(
-    circle,
-    var(--main-1) 0%,
-    var(--main-1) 60%,
-    var(--main-2) 72%,
-    var(--main-3) 82%,
-    var(--main-4) 91%,
-    var(--main-5) 98%,
-    var(--main-6) 100%
-  ); */
+  background: #aa33ff;
 }
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+nav a i {
+  margin-right: 1rem;
+}
+
 .nav-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-size: 2em;
   color: white;
 }
+
 .nav-wrapper .sidebar-trigger {
   position: absolute;
   top: 50%;
   right: 15px;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
-nav a {
-  text-decoration: none;
-  color: white;
-}
-nav a i {
-  margin-right: 1rem;
-}
+
 .sidebar-trigger .btn-line {
   width: 28px;
   height: 3px;
   margin: 0 0 5px 0;
-  background-color: var(--main-6);
+  background-color: #f9f871;
+  -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
+
 .btn-line.close:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+  -webkit-transform: rotate(45deg) translate(6px, 6px);
+          transform: rotate(45deg) translate(6px, 6px);
 }
+
 .btn-line.close:nth-child(2) {
   opacity: 0;
 }
+
 .btn-line.close:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  -webkit-transform: rotate(-45deg) translate(5px, -5px);
+          transform: rotate(-45deg) translate(5px, -5px);
 }
+/*# sourceMappingURL=styles.css.map */
