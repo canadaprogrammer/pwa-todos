@@ -11,3 +11,5 @@
 2. Create the maskable icon
 
 3. Make manifest.json
+
+4. Create website

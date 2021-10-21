@@ -1,0 +1,56 @@
+@import 'init';
+
+.list-wrapper {
+  margin-top: 2rem;
+}
+#list-title {
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.todo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  &-complete {
+    width: 30%;
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 6px solid $main-3;
+      border-radius: 50%;
+    }
+    &.completed::before {
+      background-color: $main-3;
+    }
+  }
+  &-details {
+    width: calc(70% - 62px);
+    .title {
+      font-size: 1.5em;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .content {
+      margin-bottom: 0.5rem;
+    }
+  }
+  &-remove {
+    width: 30px;
+    text-align: center;
+    padding: 16px;
+    font-size: 1.2em;
+  }
+}

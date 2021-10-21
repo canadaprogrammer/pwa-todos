@@ -1,29 +1,16 @@
-body {
-  font-family: 'Oswald', sans-serif;
-  font-size: 18px;
-  line-height: 1;
-  margin: 0;
-}
-
-@media only screen and (min-width: 1600px) {
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-}
-
 nav {
   background: #aa33ff;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  border-bottom: 10px solid #ff00bf;
 }
 
 nav a {
   text-decoration: none;
-  color: white;
+  color: #f9f871;
+  font-weight: 700;
 }
 
 nav a i {
@@ -41,7 +28,6 @@ nav a i {
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-size: 2em;
-  color: white;
 }
 
 .nav-wrapper .sidebar-trigger {
@@ -113,6 +99,7 @@ nav a i {
 #side-menu li a {
   text-decoration: none;
   color: white;
+  font-weight: 400;
 }
 
 #side-menu li .divider {
@@ -126,7 +113,7 @@ nav a i {
   top: 71px;
   background-color: black;
   opacity: 0;
-  z-index: 0;
+  z-index: -1;
   -webkit-transition: 0.4s all ease-in;
   transition: 0.4s all ease-in;
   height: calc(100vh - 71px);
@@ -137,4 +124,4 @@ nav a i {
   opacity: 0.7;
   z-index: 1;
 }
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=nav.css.map */

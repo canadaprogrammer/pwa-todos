@@ -1,32 +1,16 @@
-$main-1: #aa33ff;
-$main-2: #ff00bf;
-$main-3: #ff3a80;
-$main-4: #ff8a53;
-$main-5: #ffc747;
-$main-6: #f9f871;
+@import 'init';
 
-body {
-  font-family: 'Oswald', sans-serif;
-  font-size: 18px;
-  line-height: 1;
-  margin: 0;
-}
-@media only screen and (min-width: 1600px) {
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-}
 nav {
   background: $main-1;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  border-bottom: 10px solid $main-2;
   a {
     text-decoration: none;
-    color: white;
+    color: $main-6;
+    font-weight: 700;
     i {
       margin-right: 1rem;
     }
@@ -39,7 +23,6 @@ nav {
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-size: 2em;
-  color: white;
   .sidebar-trigger {
     position: absolute;
     top: 50%;
@@ -110,6 +93,7 @@ $nav-height: 68px;
     a {
       text-decoration: none;
       color: white;
+      font-weight: 400;
     }
     .divider {
       background-color: $main-4;
@@ -124,7 +108,7 @@ $nav-height: 71px;
   top: $nav-height;
   background-color: black;
   opacity: 0;
-  z-index: 0;
+  z-index: -1;
   transition: 0.4s all ease-in;
   height: calc(100vh - #{$nav-height});
   width: 100%;

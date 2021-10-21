@@ -1,0 +1,21 @@
+body {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1;
+  margin: 0;
+  background-color: rgba(170, 51, 255, 0.1);
+  padding-top: 81px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media only screen and (min-width: 1600px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+/*# sourceMappingURL=default.css.map */

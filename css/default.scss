@@ -1,0 +1,21 @@
+@import 'init';
+
+$nav-height: 81px;
+body {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1;
+  margin: 0;
+  background-color: $main-1-trans;
+  padding-top: $nav-height;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media only screen and (min-width: 1600px) {
+  .container {
+    max-width: 1400px;
+  }
+}

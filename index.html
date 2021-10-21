@@ -9,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/581353a056.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  <link rel="stylesheet" href="/css/default.css" type="text/css">
+  <link rel="stylesheet" href="/css/nav.css" type="text/css">
+  <link rel="stylesheet" href="/css/home.css" type="text/css">
   <!-- favicon -->
   <link rel="apple-touch-icon" sizes="192x192" href="/img/icons/ios/256.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
@@ -21,6 +23,7 @@
   <!-- end favicon -->
 </head>
 <body>
+  <!-- tob nav -->
   <nav>
     <div class="nav-wrapper container">
       <a href="/"><i class="fas fa-tasks"></i> Todo List</a>
@@ -31,14 +34,31 @@
       </div>
     </div>
   </nav>
+  <!-- side nav -->
   <ul id="side-menu" class="sidebar">
     <li class="menus"><a href="/index.html">Todo List</a></li>
     <li class="menus"><a href="/pages/not_todo.html">Not Todo List</a></li>
     <li><div class="divider"></div></li>
     <li class="menus"><a href="/pages/calendar.html">Calendar</a></li>
   </ul>
-  
+  <!-- list -->
+  <div class="list-wrapper container">
+    <div id="list-title">Wednesday, October 20, 2021</div>
+    <div class="todo">
+      <div class="todo-complete"></div>
+      <div class="todo-details">
+        <div class="title">Make up Layout</div>
+        <div class="content">The front page of portfolio</div>
+        <div class="time">10:00 am - 12:00 pm</div>
+      </div>
+      <div class="todo-remove">
+        <i class="fas fa-trash-alt"></i>
+      </div>
+    </div>
+  </div>
+  <!-- overlay -->
   <div id="overlay"></div>
   <script src="/js/nav.js"></script>
+  <script src="/js/default.js"></script>
 </body>
 </html>
