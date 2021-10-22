@@ -30,6 +30,7 @@ nav {
     transform: translateY(-50%);
     padding: 8px;
     background-color: $main-5;
+    border-radius: 4px;
   }
 }
 .sidebar-trigger .btn-line {
@@ -65,7 +66,7 @@ $nav-height: 68px;
   position: fixed;
   top: $nav-height;
   right: 0;
-  width: 300px;
+  width: 288px;
   height: 100%;
   background: rgb(170, 51, 255);
   background: linear-gradient(
@@ -95,11 +96,58 @@ $nav-height: 68px;
       color: white;
       font-weight: 400;
     }
-    .divider {
-      background-color: $main-4;
-      width: 100%;
-      height: 5px;
-    }
+  }
+}
+.divider {
+  background-color: $main-4;
+  width: 100%;
+  height: 5px;
+}
+#add-form {
+  position: fixed;
+  top: $nav-height;
+  left: 0;
+  width: 288px;
+  height: 100%;
+  color: white;
+  background: rgb(170, 51, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(170, 51, 255, 1) 0%,
+    rgba(255, 0, 191, 1) 50%,
+    rgba(255, 58, 128, 1) 65%,
+    rgba(255, 138, 83, 1) 80%,
+    rgba(255, 199, 71, 1) 90%,
+    rgba(249, 248, 113, 1) 100%
+  );
+  margin-top: 0;
+  padding: 1rem;
+  padding-top: calc(1rem + 3px);
+  list-style: none;
+  z-index: 2;
+  transition: 0.4s all ease-in;
+  transform: translateX(-150%);
+  &.active {
+    transform: translateX(0);
+  }
+  .title {
+    font-size: 1.5em;
+    margin-bottom: 1.5rem;
+  }
+  label {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 1.3em;
+  }
+  input {
+    padding: 0.5rem 1rem;
+    width: calc(100% - 2rem);
+    border: none;
+  }
+  button {
+    margin: 1rem auto;
   }
 }
 $nav-height: 71px;
@@ -115,5 +163,10 @@ $nav-height: 71px;
   &.show {
     opacity: 0.7;
     z-index: 1;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .nav-wrapper {
+    justify-content: flex-start;
   }
 }

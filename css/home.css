@@ -20,8 +20,11 @@
           align-items: center;
   position: relative;
   padding: 1rem;
+  margin-bottom: 1rem;
   background-color: white;
   border-radius: 8px;
+  -webkit-box-shadow: 1px 1px 2px 1px #ff00bf;
+  box-shadow: 1px 1px 2px 1px #ff00bf;
 }
 
 .todo-complete {
@@ -48,7 +51,7 @@
 }
 
 .todo-details {
-  width: calc(70% - 62px);
+  width: calc(70% - 132px);
 }
 
 .todo-details .title {
@@ -62,9 +65,48 @@
 }
 
 .todo-remove {
-  width: 30px;
+  width: 100px;
   text-align: center;
   padding: 16px;
   font-size: 1.2em;
+}
+
+#todo-add {
+  text-align: center;
+}
+
+#todo-add i {
+  font-size: 38px;
+  color: #aa33ff;
+}
+
+@media only screen and (max-width: 575px) {
+  .list-wrapper {
+    margin-top: 1rem;
+  }
+  #list-title {
+    font-size: 1.3em;
+    margin-bottom: 1rem;
+  }
+  .todo {
+    padding: 0.5rem;
+  }
+  .todo-complete {
+    width: 44px;
+  }
+  .todo-complete::before {
+    width: 1rem;
+    height: 1rem;
+    left: 0.5rem;
+  }
+  .todo-details {
+    width: calc(100% - 94px);
+  }
+  .todo-details .title {
+    font-size: 1.2em;
+  }
+  .todo-remove {
+    width: 18px;
+  }
 }
 /*# sourceMappingURL=home.css.map */

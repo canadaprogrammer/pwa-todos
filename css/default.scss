@@ -14,8 +14,29 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
 }
+.text-center {
+  text-align: center;
+}
+button {
+  background-color: $main-5;
+  border: none;
+  border-radius: 4px;
+  color: $main-1;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1;
+}
 @media only screen and (min-width: 1600px) {
   .container {
     max-width: 1400px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  body {
+    font-size: 16px;
+    padding-top: 76px;
   }
 }

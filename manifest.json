@@ -3,8 +3,8 @@
   "short_name": "Todos",
   "start_url": "/index.html",
   "display": "standalone",
-  "background-color": "#30D9BC",
-  "theme_color": "#21B2D1",
+  "background-color": "#aa33ff1a",
+  "theme_color": "#aa33ff",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -456,10 +456,10 @@
       "sizes": "1024x1024"
     },
     {
-      "src": "/img/icons/maskable_icon-192x192.png",
+      "src": "/img/icons/maskable_icon-512x512.png",
       "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "any maskable"
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ]
 }

@@ -15,8 +15,12 @@
   align-items: center;
   position: relative;
   padding: 1rem;
+  margin-bottom: 1rem;
   background-color: white;
   border-radius: 8px;
+  -webkit-box-shadow: 1px 1px 2px 1px $main-2;
+  -moz-box-shadow: 1px 1px 2px 1px $main-2;
+  box-shadow: 1px 1px 2px 1px $main-2;
   &-complete {
     width: 30%;
     position: relative;
@@ -37,7 +41,7 @@
     }
   }
   &-details {
-    width: calc(70% - 62px);
+    width: calc(70% - 132px);
     .title {
       font-size: 1.5em;
       font-weight: 400;
@@ -48,9 +52,46 @@
     }
   }
   &-remove {
-    width: 30px;
+    width: 100px;
     text-align: center;
     padding: 16px;
     font-size: 1.2em;
+  }
+}
+
+#todo-add {
+  text-align: center;
+  i {
+    font-size: 38px;
+    color: $main-1;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .list-wrapper {
+    margin-top: 1rem;
+  }
+  #list-title {
+    font-size: 1.3em;
+    margin-bottom: 1rem;
+  }
+  .todo {
+    padding: 0.5rem;
+    &-complete {
+      width: 44px;
+      &::before {
+        width: 1rem;
+        height: 1rem;
+        left: 0.5rem;
+      }
+    }
+    &-details {
+      width: calc(100% - 94px);
+      .title {
+        font-size: 1.2em;
+      }
+    }
+    &-remove {
+      width: 18px;
+    }
   }
 }
