@@ -7,13 +7,12 @@ nav {
   border-bottom: 10px solid #ff00bf;
 }
 
-nav a {
-  text-decoration: none;
+nav .title {
   color: #f9f871;
   font-weight: 700;
 }
 
-nav a i {
+nav .title i {
   margin-right: 1rem;
 }
 

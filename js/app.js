@@ -6,9 +6,9 @@ if('serviceWorker' in navigator){
   const sw_register = async () => {
     try {
       let reg = await navigator.serviceWorker.register('/sw.js');
-      console.log('service worker registered', reg);
+      // console.log('service worker registered', reg);
     } catch(err) {
-      console.log('service worker not registered', err);
+      // console.log('service worker not registered', err);
     }
   }
   sw_register();
