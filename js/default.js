@@ -7,6 +7,8 @@ complete.forEach(evt => {
 });
 const add_todo = document.querySelector('#todo-add');
 const add_form = document.querySelector('#add-form');
-add_todo.addEventListener('click', () => {
-  add_form.classList.add('active');
-});
+if(add_todo) {
+  add_todo.addEventListener('click', () => {
+    add_form.classList.add('active');
+  });
+}
