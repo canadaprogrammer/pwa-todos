@@ -62,10 +62,10 @@
 - lifecycle
 
   1. app.js - register the service worker(sw.js)
-  2. install service worker
+  2. install event, pre-caching
   3. service worker becomes active
   4. active event
-  5. service worker 'listens' for events
+  5. the service worker 'listens' for events, fetch and caching
 
   - when refreshed the page
 
@@ -87,14 +87,21 @@
 
 > service worker process
 >
-> 1.  install service worker
+> 1.  install event and pre-caching
+>     - pre-caching: get some assets from the server and store them in the cache when the application first loads
+>     - If they failed to be fetched, it would make your site entirely non-functional.
 > 2.  activate event
-> 3.  fetch events
+> 3.  fetch events and save resources on a cache
 >     - without service worker: browser -> fetch request -> server -> server response -> browser
 >     - Service worker: listening for fetch requests from an app, handling cached assets. When a fetch request is made from the browser, the service worker gets the response from the cache. This method makes for a rapid experience and good offline behavior.
->     - pre-caching: get some assets from the server and store them in the cache when the application first loads
->     -
 
-connect to your device for remote debugging
+6. generate a fallback page for not cached page on offline
 
-- `chrome://inspect` on a browser
+7. set limit of cache size
+
+## Tools
+
+- connect to your device for remote debugging
+  - `chrome://inspect` on a browser
+- audit site
+  - `https://web.dev/measure/`

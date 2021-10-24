@@ -68,7 +68,7 @@ nav .title i {
 
 #side-menu {
   position: fixed;
-  top: 68px;
+  top: 100px;
   right: 0;
   width: 288px;
   height: 100%;
@@ -110,7 +110,7 @@ nav .title i {
 
 #add-form {
   position: fixed;
-  top: 68px;
+  top: 100px;
   left: 0;
   width: 288px;
   height: 100%;
@@ -159,13 +159,13 @@ nav .title i {
 
 #overlay {
   position: absolute;
-  top: 71px;
+  top: 100px;
   background-color: black;
   opacity: 0;
   z-index: -1;
   -webkit-transition: 0.4s all ease-in;
   transition: 0.4s all ease-in;
-  height: calc(100vh - 71px);
+  height: calc(100vh - 100px);
   width: 100%;
 }
 

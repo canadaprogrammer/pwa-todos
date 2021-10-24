@@ -60,7 +60,7 @@ nav {
 //     }
 //   }
 // }
-$nav-height: 68px;
+$nav-height: 100px;
 #side-menu {
   position: fixed;
   top: $nav-height;
@@ -149,7 +149,6 @@ $nav-height: 68px;
     margin: 1rem auto;
   }
 }
-$nav-height: 71px;
 #overlay {
   position: absolute;
   top: $nav-height;
