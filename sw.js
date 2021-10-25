@@ -3,7 +3,7 @@
 // we can handle the cache by versioning the name.
 // Also, we need to delete the old cache.
 const staticCacheName = 'site-static-v2';
-const dynamicCacheName = 'site-dynamic-v3';
+const dynamicCacheName = 'site-dynamic-v2';
 const assets = [
   '/',
   '/index.html',
@@ -67,34 +67,36 @@ self.addEventListener('activate', evt => {
 // listen to fetch request
 self.addEventListener('fetch', evt => {
   // console.log('fetch event', evt);
-  evt.respondWith(
-    caches.match(evt.request).then(cacheRes => {
-      // If the app requests resources which are inside the cache, it returns the response from the cache.
-      // If it's not, the response will carry on with the standard fetch request from the server.
-      // return cacheRes || fetch(evt.request);
+  if(evt.request.url.indexOf('firestore.googleapis.com') === -1){
+    evt.respondWith(
+      caches.match(evt.request).then(cacheRes => {
+        // If the app requests resources which are inside the cache, it returns the response from the cache.
+        // If it's not, the response will carry on with the standard fetch request from the server.
+        // return cacheRes || fetch(evt.request);
 
-      // When a fetch request happens, the resources need to be saved on a new cache for better performance and offline.
-      return cacheRes || fetch(evt.request).then(fetchRes => {
-        // Check if the response is valid.
-        if(!fetchRes || fetchRes.status !== 200 || fetchRes.type !== 'basic') {
-          return fetchRes;
+        // When a fetch request happens, the resources need to be saved on a new cache for better performance and offline.
+        return cacheRes || fetch(evt.request).then(fetchRes => {
+          // Check if the response is valid.
+          if(!fetchRes || fetchRes.status !== 200 || fetchRes.type !== 'basic') {
+            return fetchRes;
+          }
+          return caches.open(dynamicCacheName).then(cache => {
+            // Save the response on the cache.
+            // A request is a stream and can only be consumed once.
+            // Since we consume the request once by cache and once by the browser for fetch, we need to clone the response.
+            cache.put(evt.request.url, fetchRes.clone());
+            limitCacheSize(dynamicCacheName, 15);
+            // return the response on the browser
+            return fetchRes;
+          });
+        })
+        // If the app requests resources which were not saved inside the cache offline, show the fallback page.
+        // Return fallback page when the requests have .html
+      }).catch(() => {
+        if(evt.request.url.indexOf('.html') > -1) {
+          return caches.match('/pages/fallback.html')
         }
-        return caches.open(dynamicCacheName).then(cache => {
-          // Save the response on the cache.
-          // A request is a stream and can only be consumed once.
-          // Since we consume the request once by cache and once by the browser for fetch, we need to clone the response.
-          cache.put(evt.request.url, fetchRes.clone());
-          limitCacheSize(dynamicCacheName, 15);
-          // return the response on the browser
-          return fetchRes;
-        });
       })
-      // If the app requests resources which were not saved inside the cache offline, show the fallback page.
-      // Return fallback page when the requests have .html
-    }).catch(() => {
-      if(evt.request.url.indexOf('.html') > -1) {
-        return caches.match('/pages/fallback.html')
-      }
-    })
-  )
+    )
+  }
 });

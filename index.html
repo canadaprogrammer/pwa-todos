@@ -68,23 +68,66 @@
   <!-- list -->
   <div class="list-wrapper container">
     <div id="list-title">Wednesday, October 20, 2021</div>
-    <div class="todo">
-      <div class="todo-complete"></div>
-      <div class="todo-details">
-        <div class="title">Make up Layout</div>
-        <div class="content">The front page of portfolio</div>
-        <div class="time">10:00 am - 12:00 pm</div>
-      </div>
-      <div class="todo-remove">
-        <i class="fas fa-trash-alt"></i>
-      </div>
-    </div>
   </div>
   <div id="todo-add">
     <i class="fas fa-plus-square"></i>
   </div>
   <!-- overlay -->
   <div id="overlay"></div>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+    import { getFirestore, query, collection, onSnapshot, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC1z7CrEsCWEC6L7ICxVxuB6FZFb7FuiRE",
+      authDomain: "pwa---todo.firebaseapp.com",
+      projectId: "pwa---todo",
+      storageBucket: "pwa---todo.appspot.com",
+      messagingSenderId: "974337589423",
+      appId: "1:974337589423:web:bb81d319cde836f976d45a"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // offline date
+    enableIndexedDbPersistence(db)
+      .catch(err => {
+        if(err.code == 'failed-precondition'){
+          // probably multiple tabs open at once
+          console.log('persistence failed');
+        } else if(err.code == 'unimplemented'){
+          // lack of browser support
+          console.log('persistence is not available');
+        }
+      });
+
+    // real-time listener
+    const q = query(collection(db, 'todos'));
+    const unsubscribe = onSnapshot(q, snapshot => {
+      // check changes of data
+      // console.log(snapshot.docChanges());
+      snapshot.docChanges().forEach(change => {
+        // console.log(change, change.doc.data(), change.doc.id);
+        if(change.type === 'added'){
+          // add the document data to the web page
+          renderTodo(change.doc.data(), change.doc.id);
+        }
+        if(change.type === 'removed'){
+          // remove the document data from the web page
+
+        }
+      })
+    })
+  </script>
+
+  
   <script src="/js/app.js"></script>
   <script src="/js/nav.js"></script>
   <script src="/js/default.js"></script>

@@ -95,9 +95,18 @@
 >     - without service worker: browser -> fetch request -> server -> server response -> browser
 >     - Service worker: listening for fetch requests from an app, handling cached assets. When a fetch request is made from the browser, the service worker gets the response from the cache. This method makes for a rapid experience and good offline behavior.
 
-6. generate a fallback page for not cached page on offline
+6. Generate a fallback page for not cached page on offline
 
-7. set limit of cache size
+7. Set limit of cache size
+
+8. Create Firestore Database
+
+- Create a new project and web app as test mode
+- Add database
+- Create the web app
+- Load Firebase JavaScript SDK libraries from the CDN (content delivery network) by copy and paste the scripts into the bottom of `body` tag
+- Add real-time listener
+- Save data to indexedDB by `enableIndexedDbPersistence` from firebase
 
 ## Tools
 
