@@ -105,8 +105,10 @@
 - Add database
 - Create the web app
 - Load Firebase JavaScript SDK libraries from the CDN (content delivery network) by copy and paste the scripts into the bottom of `body` tag
-- Add real-time listener
-- Save data to indexedDB by `enableIndexedDbPersistence` from firebase
+- Add real-time listener by `collection` and `onSnapshot`
+- Save data to indexedDB by `enableIndexedDbPersistence`
+- Add date to firebase by `addDoc`
+- Remove date from firebase by `deleteDoc` and `doc`
 
 ## Tools
 

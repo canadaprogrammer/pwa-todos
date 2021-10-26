@@ -36,9 +36,6 @@
       border: 6px solid $main-3;
       border-radius: 50%;
     }
-    &.completed::before {
-      background-color: $main-3;
-    }
   }
   &-details {
     width: calc(70% - 132px);
@@ -49,6 +46,16 @@
     }
     .content {
       margin-bottom: 0.5rem;
+    }
+  }
+  &.completed {
+    .todo-complete::before {
+      background-color: $main-3;
+    }
+    .todo-details {
+      div {
+        text-decoration: line-through;
+      }
     }
   }
   &-remove {

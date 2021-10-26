@@ -60,6 +60,14 @@
         <label for="date">Date</label>
         <input id="date" name="date" type="text">
       </div>
+      <div class="input-field">
+        <label for="start_time">Start Time</label>
+        <input id="start_time" name="start_time" type="text">
+      </div>
+      <div class="input-field">
+        <label for="end_time">End Time</label>
+        <input id="end_time" name="end_time" type="text">
+      </div>
       <div class="text-center">
         <button type="submit">Add</button>
       </div>      
@@ -78,7 +86,7 @@
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
-    import { getFirestore, query, collection, onSnapshot, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+    import { getFirestore, query, collection, onSnapshot, enableIndexedDbPersistence, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
   
@@ -121,9 +129,43 @@
         }
         if(change.type === 'removed'){
           // remove the document data from the web page
-
+          removeTodo(change.doc.id);
         }
       })
+    });
+
+    // add new todo
+    const form = document.querySelector('form');
+    form.addEventListener('submit', evt => {
+      evt.preventDefault();
+      const date = form.date.value;
+      const start_time = form.start_time.value;
+      const end_time = form.end_time.value;
+      // save timestamp
+      const start_datetime = new Date(`${date} ${start_time}`);
+      const end_datetime = new Date(`${date} ${end_time}`);
+      const todo = {
+        title: form.title.value,
+        content: form.description.value,
+        start_time: start_datetime,
+        end_time: end_datetime
+      }
+      addDoc(collection(db, 'todos'), todo)
+        .catch(err => console.log(err));
+      
+      form.title.value = form.description.value = form.date.value = form.start_time.value = form.end_time.value = '';
+    });
+
+    // remove todo
+    const todoContainer = document.querySelector('.list-wrapper');
+    todoContainer.addEventListener('click', evt => {
+      if(evt.target.tagName === 'I' || evt.target.className === 'todo-remove'){
+        const id = evt.target.getAttribute('data-id');
+        let isExecuted = confirm('Are your sure to delete?');
+        if(isExecuted){
+          deleteDoc(doc(db, 'todos', id));
+        }
+      }
     })
   </script>
 

@@ -1,19 +1,28 @@
-const complete = document.querySelectorAll('.todo-complete, .todo-details');
-complete.forEach(evt => {
-  evt.addEventListener('click', () => {
-    console.log(evt);
-    document.querySelector('.todo-complete').classList.toggle('completed');
-  })
-});
 const add_todo = document.querySelector('#todo-add');
 const add_form = document.querySelector('#add-form');
 if(add_todo) {
   add_todo.addEventListener('click', () => {
+    console.log(add_form);
     add_form.classList.add('active');
   });
 }
 
 const todos = document.querySelector('.list-wrapper');
+// completed
+todos.addEventListener('click', evt => {
+  const clicked = evt.target.className;
+  console.log(evt.target.className, evt.target.parentNode);
+  const step_1_classes = ['title', 'content', 'time'];
+  const step_2_classes = ['todo-complete', 'todo-complete completed'];
+  const step_3_classes = ['todo', 'todo completed'];
+  if(step_1_classes.includes(clicked)){
+    evt.target.parentNode.parentNode.classList.toggle('completed');
+  } else if(step_2_classes.includes(clicked)){
+    evt.target.parentNode.classList.toggle('completed');
+  } else if(step_3_classes.includes(clicked)){
+    evt.target.classList.toggle('completed');
+  }
+})
 // render todo data
 const renderTodo = (data, id) => {
   const start = new Date(data.start_time.seconds*1000).toISOString();
@@ -42,4 +51,9 @@ const renderTodo = (data, id) => {
   </div>
   `;
   todos.innerHTML += html;
+}
+// remove todo data
+const removeTodo = id => {
+  const todo = document.querySelector(`.todo[data-id="${id}"]`);
+  todo.remove();
 }

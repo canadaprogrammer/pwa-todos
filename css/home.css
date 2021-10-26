@@ -46,10 +46,6 @@
   border-radius: 50%;
 }
 
-.todo-complete.completed::before {
-  background-color: #ff3a80;
-}
-
 .todo-details {
   width: calc(70% - 132px);
 }
@@ -62,6 +58,14 @@
 
 .todo-details .content {
   margin-bottom: 0.5rem;
+}
+
+.todo.completed .todo-complete::before {
+  background-color: #ff3a80;
+}
+
+.todo.completed .todo-details div {
+  text-decoration: line-through;
 }
 
 .todo-remove {
