@@ -2,7 +2,7 @@
 // However, the cache is not changed before the service worker is altered because the cache is saved when the service worker is installed.
 // we can handle the cache by versioning the name.
 // Also, we need to delete the old cache.
-const staticCacheName = 'site-static-v3';
+const staticCacheName = 'site-static-v4';
 const dynamicCacheName = 'site-dynamic-v3';
 const assets = [
   '/',

@@ -28,7 +28,7 @@
   <!-- tob nav -->
   <nav>
     <div class="nav-wrapper container">
-      <div class="title"><i class="fas fa-tasks"></i> Todo List</div>
+      <div class="title"><i class="fas fa-tasks"></i>Not Todo List</div>
       <div class="sidebar-trigger" data-target="side-menu">
         <div class="btn-line"></div>
         <div class="btn-line"></div>
@@ -43,6 +43,41 @@
     <li><div class="divider"></div></li>
     <li class="menus"><a href="/pages/calendar.html">Calendar</a></li>
   </ul>
+  <!-- add form -->
+  <div id="add-form">
+    <form>
+      <div class="title">New Not Todo</div>
+      <div class="divider"></div>
+      <div class="input-field">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text">
+      </div>
+      <div class="input-field">
+        <label for="description">Description</label>
+        <input id="description" name="description" type="text">
+      </div>
+      <div class="text-center">
+        <button type="submit">Add</button>
+      </div>      
+    </form>
+  </div>
+  <!-- list -->
+  <div class="list-wrapper container">
+    <div id="list-title">Wednesday, October 20, 2021</div>
+    <div class="todo">
+      <div class="todo-complete"></div>
+      <div class="todo-details">
+        <div class="title">Multitask</div>
+        <div class="content">Do focus on one task at a time</div>
+      </div>
+      <div class="todo-remove">
+        <i class="fas fa-trash-alt"></i>
+      </div>
+    </div>
+  </div>
+  <div id="todo-add">
+    <i class="fas fa-plus-square"></i>
+  </div>
   <!-- overlay -->
   <div id="overlay"></div>
   <script src="/js/app.js"></script>

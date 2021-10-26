@@ -129,7 +129,7 @@ nav .title i {
           transform: translateX(-150%);
 }
 
-#add-form.active {
+#add-form.show {
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
@@ -175,10 +175,25 @@ nav .title i {
 }
 
 @media only screen and (max-width: 575px) {
+  nav {
+    z-index: 10;
+  }
   .nav-wrapper {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+    font-size: 1.4em;
+  }
+  #side-menu,
+  #add-form,
+  #overlay {
+    top: 77px;
+  }
+  #add-form .title {
+    margin-bottom: 1rem;
+  }
+  #overlay {
+    height: calc(100vh - 77px);
   }
 }
 /*# sourceMappingURL=nav.css.map */

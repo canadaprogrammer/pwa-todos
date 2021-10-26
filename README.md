@@ -110,6 +110,31 @@
 - Add date to firebase by `addDoc`
 - Remove date from firebase by `deleteDoc` and `doc`
 
+9. Deploying firebase
+
+- Set up hosting
+  - `$ npm install -g firebase-tools`
+  - `$ firebase login`
+  - `$ firebase init` on the root directory of the project
+    > Are you ready to proceed? **Y**
+    > Which Firebase CLI features do you want to setup for this folder? **Hosting: Configure files for Firebase Hosting**
+    > Please select an option: **Use an existing project**
+    > What do you want to use as your public directory? **enter** (public)
+    > Configure as a single-page app (rewrite all urls to /index.html)? **N**
+    > Set up automatic builds and deploys with GitHub? **N**
+  - Modify files
+    - Remove /public/index.html
+    - Move files into public folder
+      - index.html, manifest.json, sw.js, css folder, img folder, js folder, and pages folder
+  - `$ firebase deploy`
+
+10. If it needs to be changed after deployed to Firebase hosting.
+
+- Change the code
+- `$ firebase serve` to check the changes
+  - Terminate the batch job by **Ctrl + c twice**
+- Publish them to firebase hosting with `$ firebase deploy` again
+
 ## Tools
 
 - connect to your device for remote debugging

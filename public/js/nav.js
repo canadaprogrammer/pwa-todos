@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     // CHECK IF ADD FORM IS ACTIVE
-    if(form_add && form_add.classList.contains('active')) {
-      form_add.classList.remove('active');
+    if(form_add && form_add.classList.contains('show')) {
+      form_add.classList.remove('show');
     } else {
       overlay.classList.toggle('show');
     }
@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   if(btn_add && submit_add){
     btn_add.addEventListener('click', () => {
-      form_add.classList.add('active');
+      form_add.classList.add('show');
       overlay.classList.add('show');
       hide_overlay();
     });
     submit_add.addEventListener('click', () => {
-      form_add.classList.remove('active');
+      form_add.classList.remove('show');
       overlay.classList.remove('show');
     });
   }
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('#overlay.show').addEventListener('click', () => {
         side_menu.classList.remove('show');
         if(form_add) {
-          form_add.classList.remove('active');
+          form_add.classList.remove('show');
         }
         overlay.classList.remove('show');
       })

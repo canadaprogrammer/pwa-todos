@@ -126,7 +126,7 @@ $nav-height: 100px;
   z-index: 2;
   transition: 0.4s all ease-in;
   transform: translateX(-150%);
-  &.active {
+  &.show {
     transform: translateX(0);
   }
   .title {
@@ -164,7 +164,33 @@ $nav-height: 100px;
   }
 }
 @media only screen and (max-width: 575px) {
+  $nav-height: 77px;
+  nav {
+    z-index: 10;
+  }
   .nav-wrapper {
     justify-content: flex-start;
+    font-size: 1.4em;
+  }
+  #side-menu,
+  #add-form {
+    &.show {
+      // z-index: 2;
+      // position: relative;
+      // top: 0;
+    }
+  }
+  #side-menu,
+  #add-form,
+  #overlay {
+    top: $nav-height;
+  }
+  #add-form {
+    .title {
+      margin-bottom: 1rem;
+    }
+  }
+  #overlay {
+    height: calc(100vh - #{$nav-height});
   }
 }
