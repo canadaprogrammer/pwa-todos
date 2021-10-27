@@ -58,15 +58,15 @@
       </div>
       <div class="input-field">
         <label for="date">Date</label>
-        <input id="date" name="date" type="text">
+        <input id="date" name="date" type="date">
       </div>
       <div class="input-field">
         <label for="start_time">Start Time</label>
-        <input id="start_time" name="start_time" type="text">
+        <input id="start_time" name="start_time" type="time">
       </div>
       <div class="input-field">
         <label for="end_time">End Time</label>
-        <input id="end_time" name="end_time" type="text">
+        <input id="end_time" name="end_time" type="time">
       </div>
       <div class="text-center">
         <button type="submit">Add</button>
@@ -75,7 +75,6 @@
   </div>
   <!-- list -->
   <div class="list-wrapper container">
-    <div id="list-title">Wednesday, October 20, 2021</div>
   </div>
   <div id="todo-add">
     <i class="fas fa-plus-square"></i>
@@ -141,19 +140,31 @@
       const date = form.date.value;
       const start_time = form.start_time.value;
       const end_time = form.end_time.value;
+      const temp_start_datetime = new Date(`${date} ${start_time}`);
+      const temp_end_datetime = new Date(`${date} ${end_time}`);
+      // change timezone
+      // const change_server_timezone = datetime => {
+      //   const dt = datetime.toLocaleString('en-US', {
+      //     timeZone: "America/Los_Angeles",
+      //     hour12: false
+      //   });
+      //   const dt_arr = dt.split(', ');
+      //   let date = dt_arr[0].split('/');
+      //   date = `${date[2]}-${date[0]}-${date[1]}`;
+      //   return `${date} ${dt_arr[1]}`;
+      // }
+      // const start_datetime = new Date(change_server_timezone(temp_start_datetime));
+      // const end_datetime = new Date(change_server_timezone(temp_end_datetime));
       // save timestamp
-      const start_datetime = new Date(`${date} ${start_time}`);
-      const end_datetime = new Date(`${date} ${end_time}`);
       const todo = {
         title: form.title.value,
         content: form.description.value,
-        start_time: start_datetime,
-        end_time: end_datetime
+        start_time: temp_start_datetime,
+        end_time: temp_end_datetime
       }
       addDoc(collection(db, 'todos'), todo)
+        .then(form_init())
         .catch(err => console.log(err));
-      
-      form.title.value = form.description.value = form.date.value = form.start_time.value = form.end_time.value = '';
     });
 
     // remove todo

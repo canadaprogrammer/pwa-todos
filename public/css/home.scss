@@ -47,6 +47,11 @@
     .content {
       margin-bottom: 0.5rem;
     }
+    .time {
+      span:first-of-type {
+        margin-right: 1rem;
+      }
+    }
   }
   &.completed {
     .todo-complete::before {

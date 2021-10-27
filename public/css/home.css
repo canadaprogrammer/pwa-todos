@@ -60,6 +60,10 @@
   margin-bottom: 0.5rem;
 }
 
+.todo-details .time span:first-of-type {
+  margin-right: 1rem;
+}
+
 .todo.completed .todo-complete::before {
   background-color: #ff3a80;
 }
