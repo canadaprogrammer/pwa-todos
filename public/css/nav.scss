@@ -7,6 +7,7 @@ nav {
   left: 0;
   right: 0;
   border-bottom: 10px solid $main-2;
+  z-index: 3;
   .title {
     color: $main-6;
     font-weight: 700;
@@ -150,7 +151,7 @@ $nav-height: 100px;
   }
 }
 #overlay {
-  position: absolute;
+  position: fixed;
   top: $nav-height;
   background-color: black;
   opacity: 0;
@@ -163,6 +164,40 @@ $nav-height: 100px;
     z-index: 1;
   }
 }
+@media only screen and (orientation: landscape) and (max-height: 630px) {
+  #add-form {
+    padding-top: 0.5rem;
+    .title,
+    .divider {
+      display: none;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      .input-field {
+        flex: 0 0 48%;
+        width: 48%;
+        padding-left: 1%;
+        padding-right: 1%;
+      }
+      div:last-of-type {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex: 0 0 49%;
+        width: 49%;
+        padding-right: 1%;
+      }
+    }
+    label {
+      margin-top: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
+    button {
+      margin: 0;
+    }
+  }
+}
 @media only screen and (max-width: 575px) {
   $nav-height: 77px;
   nav {
@@ -171,14 +206,6 @@ $nav-height: 100px;
   .nav-wrapper {
     justify-content: flex-start;
     font-size: 1.4em;
-  }
-  #side-menu,
-  #add-form {
-    &.show {
-      // z-index: 2;
-      // position: relative;
-      // top: 0;
-    }
   }
   #side-menu,
   #add-form,
