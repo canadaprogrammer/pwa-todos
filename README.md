@@ -68,6 +68,9 @@
   5. the service worker 'listens' for events, fetch and caching
 
   - when refreshed the page
+  - when refreshed the page
+  - when refreshed the page
+  - when refreshed the page
 
     > 1. app.js - register the service worker
 
@@ -134,6 +137,14 @@
 - `$ firebase serve` to check the changes
   - Terminate the batch job by **Ctrl + c twice**
 - Publish them to firebase hosting with `$ firebase deploy` again
+
+11. The results
+
+- https://pwa---todo.web.app/
+  > ![The front page](</public/img/app(360x640).png>)
+  > ![Navigation](</public/img/app(360x640)-1.png>)
+  > ![Add form](</public/img/app(360x640)-2.png>)
+  > ![Not todo page](</public/img/app(360x640)-3.png>)
 
 ## Tools
 
