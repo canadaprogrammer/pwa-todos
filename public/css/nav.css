@@ -178,6 +178,7 @@ nav .title i {
 @media only screen and (orientation: landscape) and (max-height: 630px) {
   #add-form {
     padding-top: 0.5rem;
+    width: 370px;
   }
   #add-form .title,
   #add-form .divider {
@@ -220,6 +221,7 @@ nav .title i {
   }
   #add-form button {
     margin: 0;
+    margin-top: 1rem;
   }
 }
 

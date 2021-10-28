@@ -3,13 +3,15 @@
 // we can handle the cache by versioning the name.
 // Also, we need to delete the old cache.
 const staticCacheName = 'site-static-v4';
-const dynamicCacheName = 'site-dynamic-v3';
+const dynamicCacheName = 'site-dynamic-v4';
 const assets = [
   '/',
   '/index.html',
   '/js/app.js',
-  '/js/default.js',
   '/js/nav.js',
+  '/js/todo.js',
+  '/js/not_todo.js',
+  '/js/db.js',
   '/css/default.css',
   '/css/home.css',
   '/css/init.css',
